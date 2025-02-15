@@ -180,7 +180,7 @@ export default function SignUp() {
       setAlert({ message: 'Please complete all required fields.', type: 'error'});
       return;
     }
-  
+    console.log(patientData);
     try {
       await axios.post('https://emr-backend.up.railway.app/accounts/patients/signup/', patientData);
         
