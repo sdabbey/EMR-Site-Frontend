@@ -160,6 +160,13 @@ export default function SignUp() {
   
 
     const patientData = {
+      user: {
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        password_confirm: formData.confirmPassword
+      },
       firstname: formData.firstName,
       lastname: formData.lastName,
       date_of_birth: formData.dateOfBirth,
@@ -180,12 +187,10 @@ export default function SignUp() {
       setAlert({ message: 'Please complete all required fields.', type: 'error'});
       return;
     }
-    const payload = {
-      user: patientData,
-    };
-    console.log(payload);
+    
+    console.log(patientData);
     try {
-      await axios.post('https://emr-backend.up.railway.app/accounts/patients/signup/', payload);
+      await axios.post('https://emr-backend.up.railway.app/accounts/patients/signup/', patientData);
         
   
       
